@@ -110,10 +110,8 @@ Some of the benefits we can find when we talk about cloud computing are the foll
 
 Benefit | Description
 ------- | -----------
-Trade upfront expense for variable expense | **Upfront expense** refers to data centers, physical servers, and other resources that you would need to
-invest **variable expense** refers to the cloud computing approach, implement innovative solutions while saving on costs.
-Stop spending money to run and mantain data centers | A benefit of the cloud computing is the ability to focus less on these tasks and more on your
-applications and customers.
+Trade upfront expense for variable expense | **Upfront expense** refers to data centers, physical servers, and other resources that you would need to invest **variable expense** refers to the cloud computing approach, implement innovative solutions while saving on costs.
+Stop spending money to run and mantain data centers | A benefit of the cloud computing is the ability to focus less on these tasks and more on your applications and customers.
 Stop guessing capacity | With cloud computing, you don’t have to predict how much infrastructure capacity you will need before deploying an application.
 Benefit from massive economies of scale | By using cloud computing, you can achieve a lower variable cost than you can get on your own.
 Increase speed and agility | The flexibility of cloud computing makes it easier for you to develop and deploy applications.
