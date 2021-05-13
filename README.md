@@ -1,7 +1,7 @@
 # AWSCloudPracticionerCourse
 
 This Repository will have all the notes and pertinent code in order to fully understand and achieve the AWS Certified Cloud Practitioner Basics.
-This repository was originally developed by [ Fabián Camp ](https://fabshub.net). It is highly recomended to have your personal account in AWS in 
+This repository was originally developed by [Fabián Camp](https://fabshub.net). It is highly recomended to have your personal account in AWS in 
 order to fully understand the course and to take the course directly from AWS training.
 
 ## Table of Contents
@@ -30,7 +30,7 @@ a **server** can be services such as Amazon Elastic Compute Cloud (Amazon EC2) t
 An example of this is the following, you make a request for a particular photo that you are interested in then, the server will
 evaluate the details of that request, if that evaluation fulfills the server needs then it will return the photo you ask for.
 
-![ Client Server Model ](Images\ClientServer.png)
+![ Client Server Model ](Images/ClientServer.png)
 
 <a name="cloud-computing"></a>
 
