@@ -18,6 +18,22 @@ order to fully understand the course and to take the course directly from AWS tr
     1. [ Amazon Elastic Compute Cloud (Amazon EC2) ](#ec2-summary)
         1. [ Amazon EC2 instance types ](#ec2-types)
         2. [ Amazon EC2 pricing ](#ec2-pricing)
+            1. [ On-Demand ](#ec2-pricing-on-demand)
+            2. [ Amazon EC2 Saving Plans ](#ec2-pricing-saving-plans)
+            3. [ Reserved Instances ](#ec2-pricing-reserved-instances)
+            4. [ Spot Instances ](#ec2-pricing-spot-instances)
+            5. [ Dedicated Hosts ](#ec2-pricing-dedicated-hosts)
+        3. [ Scaling Amazon EC2 ](#ec2-scaling)
+            1. [ Amazon EC2 Auto Scaling ](#ec2-auto-scaling)
+    2. [ Directing trafic with Elastic Load Balancing ](#directing-trafic)
+        1. [ Elastic Load Balancing (ELB) ](#elastic-load-balancing)
+    3. [ Messaging and queuing ](#messaging-queuing)
+        1. [ Monolithic applications and microservices ](#monolithic-and-microservices)
+            1. [ Monolithic applications ](#monolithic)
+            2. [ Microservice applications ](#microservice)
+        2. [ Amazon Simple Queue Service ](#amazon-sqs)
+        3. [ Amazon Simple Notification Service ](#amazon-sns)
+    4. [ Additional compute services ](#compute-services)
 
 <a name="module-1"></a>
 
@@ -25,7 +41,7 @@ order to fully understand the course and to take the course directly from AWS tr
 
 <a name="client-server-model"></a>
 
-### 1. Client-server model
+### 1.1 Client-server model
 
 A **client** can be a web browser or desktop application that a person interacts with to make requests to computer servers. In the other hand,
 a **server** can be services such as Amazon Elastic Compute Cloud (Amazon EC2) that is a type of virtual server.
@@ -37,7 +53,7 @@ evaluate the details of that request, if that evaluation fulfills the server nee
 
 <a name="cloud-computing"></a>
 
-### 2. Cloud computing
+### 1.2 Cloud computing
 
 When we talk about cloud computing first it is important to understand what is cloud computing for AWS, this is:
 
@@ -56,7 +72,7 @@ hours a day at the same levels you do during peak hours. In fact, some hours, yo
 
 <a name="cloud-computing-models"></a>
 
-#### Deployment models for cloud computing
+#### 1.2.1 Deployment models for cloud computing
 
 When selecting a cloud strategy, a company must consider factors such as required cloud application components, preferred resource management
 tools, and any legacy IT infrastructure requirements.
@@ -65,7 +81,7 @@ There are three cloud computing deployment models are cloud-based, on-premises, 
 
 <a name="cloud-based"></a>
 
-##### Cloud-based deployment
+##### 1.2.1.1 Cloud-based deployment
 
 - Run all parts of the application in the cloud.
 - Migrate existing applications to the cloud.
@@ -79,7 +95,7 @@ In other words, you don't need to think in your infrastructure because all the d
 
 <a name="on-premises"></a>
 
-##### On-premises deployment (Private Cloud)
+##### 1.2.1.2 On-premises deployment (Private Cloud)
 
 - Deploy resources by using virtualization and resource management tools.
 - Increase resource utilization by using application management and virtualization and resource management tools.
@@ -92,7 +108,7 @@ on your infrastructure, this is called on-premise.
 
 <a name="hybrid"></a>
 
-##### Hybrid deployment
+##### 1.2.1.3 Hybrid deployment
 
 - Connect cloud-based resources to on-premises infrastructure.
 - Integrate cloud-based resources with legacy IT applications.
@@ -107,7 +123,7 @@ DynamoDB. This example is what AWS call Hybrid deployment.
 
 <a name="cloud-computing-benefits"></a>
 
-#### Benefits of cloud computing
+#### 1.2.2 Benefits of cloud computing
 
 Some of the benefits we can find when we talk about cloud computing are the following ones:
 
@@ -126,7 +142,7 @@ Go global in minutes | AWS Cloud enables you to deploy applications to customers
 
 <a name="ec2-summary"></a>
 
-### Amazon Elastic Compute Cloud (Amazon EC2)
+### 2.1 Amazon Elastic Compute Cloud (Amazon EC2)
 
 Provides secure, resizable compute capacity in the cloud as Amazon EC2 instances. EC2 runs in the top of physical host machines managed by AWS using
 virtualization technology. When you use an EC2 instance you're not necessarily talking to the entire host to yourself. Instead, you are sharing this host
@@ -151,7 +167,7 @@ In order to use an Amazon EC2 instance there are only 3 steps:
 
 <a name="ec2-types"></a>
 
-#### Amazon EC2 instance types
+#### 2.1.1 Amazon EC2 instance types
 
 Amazon EC2 gives us, depending on our needs, different types of EC2 instances that we can use:
 
@@ -162,5 +178,169 @@ Can be used for a variety of diverse workloads like web service or code reposito
 
 <a name="ec2-pricing"></a>
 
-#### Amazon EC2 pricing
+#### 2.1.2 Amazon EC2 pricing
 
+The are differents type of pricing for the EC2 instances depending on the usage and your needs. We will going to explore the different
+kind of pricing that AWS offers to you.
+
+<a name="ec2-pricing-on-demand"></a>
+
+##### 2.1.2.1 On-Demand
+
+- You only pay for the duration that your instance  runs for.
+- Are ideal for short-term, irregular workloads that cannot be interrupted.
+
+<a name="ec2-pricing-saving-plans"></a>
+
+##### 2.1.2.2 Amazon EC2 Saving Plans
+
+- Offers low prices on EC2 usage in exchange for a commitment to a consistent amount of usage measured in dollars per hour for a one or three-year term.
+- Provide savings up to 72% on your AWS compute usage.
+
+<a name="ec2-pricing-reserved-instances"></a>
+
+##### 2.1.2.3 Reserved Instances
+
+- Are suited for steady-state workloads or ones with predictable usage.
+- Provide savings up to 75%  discount verses On-Demand pricing, you qualify for a discount once you commit to a one or three-year term.
+- There are 3 different payment types, **All upfront**, where you pay for them in full when you commit; **partial upfront**, you pay a portion when you commit; and **no upfront**, you don't pay anything at the beginning.
+
+<a name="ec2-pricing-spot-instances"></a>
+
+##### 2.1.2.4 Spot Instances
+
+- They allow you to request spare Amazon EC2 computing capacity for up to 90% off the On-Demand price.
+- AWS can reclaim the instance at any time they needed, giving you a two minute warning to finish up work and save state.
+
+<a name="ec2-pricing-dedicated-hosts"></a>
+
+##### 2.1.2.5 Dedicared Hosts
+
+- Are physical hosts dedicated for your use for EC2.
+- There are usually for meeting certain compliance requirements and nobody else will share tenancy for that host.
+- Dedicated Hosts are the most expensive of all the pricing options.
+
+<a name="ec2-scaling"></a>
+
+#### 2.1.3 Scaling Amazon EC2
+
+Scalability involves beginning wiht only the resources you need and designing your architecture to automatically respond to changing
+demand by **scaling out or in**. As a result, you only pay for the resources you use, also this process can happen automatically if
+you need to. AWS provides an **Auto Scaling** functionality for Amazon EC2 instances.
+
+**Scaling up (in)** means adding more power to the machines that are running while while **scaling out** means adding more instances
+in order to get the job done.
+
+<a name="ec2-auto-scaling"></a>
+
+##### 2.1.3.1 Amazon EC2 Auto Scaling
+
+This feature enables you to automatically _add_ or _remove_ Amazon EC2 instances in response to changing application demand. By
+automatically scaling your instances in and out as needed, you are able to mantain a greater sense of application availability. It
+exists two different approaches that you can follow:
+
+Dynamic Scaling | Predictive Scaling
+--------------- | ------------------
+Response to changing demands | Automatically schedules the right number of Amazon EC2 instances based on predicted demand.
+
+> Note: to scale up faster, you can use dynamic scaling and predictive scaling toguether.
+
+When you create an Auto Scaling group, you can set the minimum number of Amazon EC2 instances, the desired capacity and the maximum
+capacity. The minimum capacity is the number of Amazon EC2 instances that launch immediately after you have created the Auto Scaling
+group, the desired capacity as the name explains is the desired capacity that you want your EC2 instance to have (if is not specified
+the default number will be the minimum capacity). Last but not least, the maximum capacity tells AWS in how many instances you can
+scale out in response to increased deamand.
+
+![ Auto Scaling Image ](Images/AutoScaling.png)
+
+> Note 2: Because Amazon EC2 Auto Scaling uses Amazon EC2 instances, you pay for only the instances you use, when you use them.
+
+<a name="directing-trafic"></a>
+
+### 2.2 Directing trafic with Elastic Load Balancing
+
+A **load balancer** is an application that takes in requests and routes them to the instances to be processed. AWS gives us the chance
+to decide between using whatever we want to use to balance the trafic, can be the load balancer that you already are using or you can
+use the Amazon service **Elastic Load Balancing (ELB)**
+
+<a name="elastic-load-balancing"></a>
+
+#### 2.2.1 Elastic Load Balancing (ELB)
+
+Is one of the first major managed services, it's engineered to address the undifferentiated heavy lifting of load balancing. ELB is
+automatically scalable. Also, ELB is not only used for external trafic you can aslo use it for internal trafic allowing multiple
+front-ends to communicate with the available back-ends.
+
+So, in other words, **Elastic Load Balancing** is the AWS service that automatically distributes incoming application traffic across
+multiple resources, such as Amazon EC2 instances. A load balancer acts as a single point of contact for all incoming web traffic to
+your Auto Scaling Group. This means that as you add or remove Amazon EC2 instances the process that it will follows is the next one:
+
+1. The requests route the Load Balancer first.
+2. Then the requests spread across the multiple resources that will handle them.
+
+A graphic example will be the following ones:
+
+- Elastic Load Balancing - Low Demand requests:
+![ Elastic Load Balancing - Low Demand ](Images/ELB-LowDemand.png)
+- Elastic Load Balancing - High Demand requests:
+![ Elastic Load Balancing - High Demand ](Images/ELB-HighDemand.png)
+
+<a name="messaging-queuing"></a>
+
+### 2.3 Messaging and queuing
+
+The messaging and queuing idea borns from the problem that exists in a **tightly coupled architecture**, in this type of architecture
+if one of the parts fail it will cause that the other part also fails, for example, component a is communicating with component b.
+Suddenly, component b stops working so the messages that are being sent by a are not being delivered in consecuence component a fails.
+
+To solve this problem we put some sort of buffer that is called messaging and queuing. For this, AWS offers to us two services: 
+**Amazon Simple Queue Service (Amazon SQS)** and **Amazon Simple Notification Service (Amazon SNS)**.
+
+<a name="monolithic-and-microservices"></a>
+
+#### 2.3.1 Monolothic applications and microservices
+
+When we talk about architecture of applications we can think in monolithic approach or the microservices approach. So let's define
+what is a Monolithic application and what is a Microservice application.
+
+Applications are made of multiple components. These components communicates with each other to transmit data, fulfill requests, and
+keep the application running
+
+<a name="monolithic"></a>
+
+##### 2.3.1.1 Monolithic applications
+
+Suppose that you have an application with tightly coupled components. These components might include databases, servers, the user
+interface, business logic, and so on. This type of architecture can be considered a monolithic application.
+In this architecture approach, if a single component fails, other component fails, and possibly the entire application fails.
+
+![ Monolithic App ](Images/MonolithicApp.png)
+
+<a name="microservice"></a>
+
+##### 2.3.1.2 Microservice applications
+
+In a microservices approach, application components are loosely coupled. In this case, if a single component fails, the other
+components continue to work because they are communicating with each other. When designing applications on AWS, you can take a
+microservices approach with services and components that fulfill different functions.
+
+![ Microservice App ](Images/MicroserviceApp.png)
+
+<a name="amazon-sqs"></a>
+
+#### 2.3.2 Amazon Simple Queue Service (Amazon SQS)
+
+Is a message queuing service. you can send, store, and receive messages between software components, without losing messages or
+requiring other services to be available. In Amazon SQS, an application sends messages into a queue. A user or service retrieves a
+message from the queue, processes it, and then deletes it from the queue.
+
+<a name="amazon-sns"></a>
+
+#### 2.3.3 Amazon Simple Notification Service (Amazon SNS)
+
+Is a publish/subscribe service. Using Amazon SNS topics, a publisher publishes messages to subscribers. In Amazon SNS subscribers can
+be web servers, email addresses, AWS Lambda functions, or several other options.
+
+<a name="compute-services"></a>
+
+### 2.4 Additional compute services
