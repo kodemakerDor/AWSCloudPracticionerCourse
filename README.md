@@ -39,6 +39,10 @@ This Repository will have all the notes and pertinent code in order to fully und
             2. [ AWS Elastic Kubernetes Service (EKS) ](#aws-eks)
         4. [ AWS Fargate ](#aws-fargate)
 3. [ Module 3: Global Infrastructure and Reliability ](#module-3)
+    1. [ AWS Global Infrastructure ](#aws-global-infrastructure)
+        1. [ AWS Regions ](#aws-region)
+        2. [ Availability Zone (AZ) ](#aws-availability-zone)
+    2. [ Edge Locations ](#aws-edge-locations)
 
 <a name="module-1"></a>
 
@@ -348,4 +352,43 @@ Is a serverless compute platform for ECS or ECK. This service is the alternative
 <a name="module-3"></a>
 
 ## Module 3: Global Infrastructure and Reliability
+
+<a name="aws-global-infrastructure"></a>
+
+### 3.1 AWS Global Infrastructure
+
+The global infrastructure that aws manages all around the globe is by something they call _Regions_. This infrastructure was developed this way because AWS wants to avoid as far as posible all the events that can cause you to lose connection to your datacenter.
+
+<a name="aws-region"></a>
+
+#### 3.1.1 AWS Regions
+
+AWS define as a _Region_ the building of a large group of datacenters. These Regions are built all around the world to be closest to where the business trafic demands. Some examples of Regions that AWS has are the following:
+
+- Paris.
+- Tokio.
+- Sao Pablo.
+- Dublin.
+- Ohio.
+
+It is important to know that each Region is isolated from every other Region in the sense that absolutely no data goes in or out of your environment in that Region without you explicitly granting permission for that data to be moved. 
+
+With this in mind, the question of _Which Region i need to pick?_ arrises. To answer this question, we have 4 business factors that go into choosing a Region:
+
+1. Compliance: first of all, you must first look at your compliance requirements. Depending on your company and location, you might need to run your data out of specific areas.
+2. Proximity: how close you are to your customer base. If you don't choose the right Region you probably experiment something called _latency_ that is the time it takes for the data to be sent and received. Being close to your customers will help you to get content to them faster.
+3. Availability: some regions may have or may not have a certain feature you need to use. The best example will be Amazon Bracket (the service of quantum computing platform of AWS)
+4. Pricing: depending on the Region the pricing will be more or be less.
+
+<a name="aws-availability-zone"></a>
+
+#### 3.1.2 Availability Zone (AZ)
+
+An Availability Zone (AZ) is a single data center or a group of data centers within a Region. They are located tens of miles apart from each other for preventing that a huge event (like a natural disaster) takes all the AZ within a Region, that's why the AZ are tens of miles apart.
+
+> AWS best practice is to run your application across at least two Availability Zones in a Region. Because if an Availability Zone 1 fails the second Availability Zone will still be running your application.
+
+<a name="aws-edge-locations"></a>
+
+### 3.2 Edge locations
 
